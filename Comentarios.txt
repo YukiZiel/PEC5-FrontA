@@ -1,2 +1,3 @@
 He desplegado la app con Netlify: https://tranquil-melba-17497e.netlify.app/
+He probado que funciona tanto en el móvil como en el ordenador, me deja instalarlo sin problemas.
 Y he utilizado el pluggin Lighthouse para crear el report y como resultado tengo un 98% en Performance, un 100% en Accessibility y Best Practices y un 89% en SEO por no tener meta descripciones en el documento, y por último me muestra que se ha creado correctamente el Progressive Web App (PWA).

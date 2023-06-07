@@ -1,1 +1,2 @@
-He realizado casi todo el ejercicio 1, no me dió tiempo de hacer el ejercicio 2 y en respecto al Lighthouse.
+He desplegado la app con Netlify: https://tranquil-melba-17497e.netlify.app/
+Y he utilizado el pluggin Lighthouse para crear el report y como resultado tengo un 98% en Performance, un 100% en Accessibility y Best Practices y un 89% en SEO por no tener meta descripciones en el documento, y por último me muestra que se ha creado correctamente el Progressive Web App (PWA).

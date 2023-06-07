@@ -1,0 +1,41 @@
+<div class="container">
+    <h1>List</h1>
+    <div *ngIf="isLoading" class="spinner">
+        <div class="overlay"></div>
+        <div class="spinnerC"></div>
+    </div>
+    <div class="buttons">
+        <button mat-button (click)="toggleView('cards')" [class.active]="view === 'cards'">Cards View</button>
+        <button mat-button (click)="toggleView('table')" [class.active]="view === 'table'">Table View</button>
+    </div>
+
+  <div *ngIf="view === 'cards'" [@fadeInOut]>
+    <mat-card *ngFor="let character of characters" [routerLink]="['/character/', character.id]" class="card-item">
+        <mat-card-content *ngIf="!isLoading">{{character.id}} - {{character.name}}</mat-card-content>
+    </mat-card>
+  </div>
+
+
+  <div *ngIf="view === 'table'" [@fadeInOut]>
+        <table mat-table [dataSource]="characters" class="mat-elevation-z8" *ngIf="!isLoading"> 
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>ID</th>
+                <td mat-cell *matCellDef="let character">{{ character.id }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let character"><a [routerLink]="['/character/', character.id]">{{ character.name }}</a></td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let character; columns: displayedColumns;"></tr>
+        </table>
+  </div>
+</div>
+
+    <!-- <ul class="list-group">
+        <a *ngFor="let detail of characters" [routerLink]="['/character', detail.id]" class="list-group-item list-group-item-action animate_animated animate_bounce animate_fadeIn">
+            {{detail.id}} - {{detail.name}}
+        </a>
+        </ul> -->

@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <div *ngIf="detail" class="row animate_animated animate_bounce animate_fadeIn">
+        <div class="col-md-9">
+            <h2>Name: {{detail.name}}</h2>
+            <img style="width: auto; height: 70%;" class="rounded" src="{{detail.image}}" alt="">
+        </div>
+    </div>
+    <button mat-raised-button (click)="toggleDetails()" >Show all details</button>
+    <div *ngIf="showDetails">
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+            <mat-tab label="Status:">{{detail.status}}</mat-tab>
+            <mat-tab label="Species:">{{detail.species}}</mat-tab>
+            <mat-tab label="Type:">{{detail.type}}</mat-tab>
+            <mat-tab label="Gender:">{{detail.gender}}</mat-tab>
+            <mat-tab label="Origin:">{{detail.origin.name}} - {{detail.origin.url}}</mat-tab>
+            <mat-tab label="Location:">{{detail.location.name}} - {{detail.location.url}}</mat-tab>
+            <mat-tab label="Episode:">            
+                <ul>
+                    <li *ngFor="let episode of detail.episode">{{ episode }}</li>
+                </ul></mat-tab>
+            <mat-tab label="Url:">{{detail.url}}</mat-tab>
+            <mat-tab label="Created:">{{detail.created}}</mat-tab>
+        </mat-tab-group>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-danger" routerLink="/">Back</a>
+    </div>
+</div>
